@@ -8,7 +8,7 @@
 
 A deep learning platform for automated Printed Circuit Board (PCB) inspection. It replaces the manual process of teaching Automated Optical Inspection (AOI) systems by using a two-stage pipeline - semantic segmentation followed by object detection - to extract structural PCB features such as component bodies, leads, and solder joints.
 
-> **Note:** Add a screenshot of the Gradio UI here once available.
+![PCBInspect-AI Demo](assets/pcb-demo.png)
 
 ---
 
@@ -52,13 +52,20 @@ YOLOv12 is recommended for deployment due to superior recall (critical for minim
 
 ## Model Weights
 
-Weights will be hosted on Hugging Face. Replace the placeholder below once uploaded:
+Weights are hosted on Hugging Face: [JcProg/PCBInspect-AI](https://huggingface.co/JcProg/PCBInspect-AI)
+
+| File | Model | Epochs |
+|---|---|---|
+| `YoloV12-Medium-160-FineTuned.pt` | YOLOv12 Medium (Recommended) | 160 (100 + 60) |
+| `RFDETR-Medium-100-Epoch.pth` | RF-DETR Medium | 100 |
+
+### Download
 
 ```bash
-huggingface-cli download <your-hf-username>/<your-hf-repo> --local-dir demo/checkpoint/
+huggingface-cli download JcProg/PCBInspect-AI --local-dir demo/checkpoint/
 ```
 
-Place downloaded `.pt` / `.pth` files inside `demo/checkpoint/`.
+Place downloaded files inside `demo/checkpoint/`.
 
 ---
 
@@ -72,8 +79,8 @@ Place downloaded `.pt` / `.pth` files inside `demo/checkpoint/`.
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/<your-username>/PCBInspect-AI.git
-cd PCBInspect-AI
+git clone https://github.com/JC-prog/pcb-inspect-ai.git
+cd pcb-inspect-ai
 ```
 
 ### 2. Change into the demo directory
@@ -184,9 +191,28 @@ PCBInspect/
 
 - [Project Summary](docs/PROJECT-SUMMARY.md) - goals, results, and recommendations
 - [Methodology](docs/METHODLOLOGY.md) - data pipeline, architectures, training strategy
+- [Results](docs/RESULTS.md) - model comparison and error analysis
+
+### External Resources (Google Drive)
+
+| Resource | Description |
+|---|---|
+| [Notebooks](https://drive.google.com/drive/folders/1NyMsRoG8B0-0Lr4z5CQLzR7OEahkka5K?usp=drive_link) | Jupyter notebooks used for training and evaluation |
+| [Documents](https://drive.google.com/drive/folders/1HRaflPGTkw3rStWkGf34jQPuOSwSPxlB?usp=drive_link) | Project report and presentation slides |
+| [Results](https://drive.google.com/drive/folders/1J42Y-g45l39aNU7A1RTcykD50LP98LFx?usp=drive_link) | Training outputs, logs, and exported weights |
+| [Model Card](https://huggingface.co/JcProg/PCBInspect-AI/tree/main) | Hugging Face model card and weights |
 
 ---
 
-## Acknowledgements
+## Authors
 
 Developed at the **National University of Singapore (NUS)** as part of research into automated AOI recipe generation for semiconductor manufacturing.
+
+<!-- Add authors below -->
+| Name | Email |
+|---|---|
+| Jeffrey Chong Loh Loy Fatt | e1503303@u.nus.edu |
+| Kenny Lau Jia Xu | e0271067@u.nus.edu |
+| Wang Ze Yu | e1512194@u.nus.edu |
+| Ye Htut | e1509815@u.nus.edu |
+
